@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WareView — Dashboard</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Full-width header (logo only in header now) -->
+  <header class="header fullwidth-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <div class="logo header-logo">
+          <span class="logo-black">Ware</span><span class="logo-blue">View</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <div class="search-wrap">
+          <input id="globalSearch" placeholder="Search" aria-label="Search" />
+          <button class="search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="app layout">
+    <!-- Sidebar / navbar: logo removed from here -->
+    <aside class="sidebar" id="desktopSidebar" aria-hidden="false">
+      <nav class="nav" aria-label="Main navigation">
+        <h6 class="nav-section">GENERAL</h6>
+        <ul>
+          <li class="nav-item"><a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+          <li class="nav-item"><a href="inventory.html" class="nav-link"><i class="fa-solid fa-box-open"></i> Inventory</a></li>
+          <li class="nav-item"><a href="sales.html" class="nav-link"><i class="fa-solid fa-file-invoice-dollar"></i> Sales Orders</a></li>
+          <li class="nav-item"><a href="suppliers.html" class="nav-link"><i class="fa-solid fa-handshake-simple"></i> Suppliers</a></li>
+          <li class="nav-item"><a href="reports.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> Reports</a></li>
+        </ul>
+
+        <h6 class="nav-section">SUPPORT</h6>
+        <ul>
+          <li class="nav-item"><a href="#" class="nav-link"><i class="fa-solid fa-circle-question"></i> Help</a></li>
+          <li class="nav-item"><a href="#" class="nav-link"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <section class="content">
+        <section class="summary-row">
+          <div class="summary-card">
+            <div class="sc-left">
+              <span class="sc-icon sc-icon-blue"><i class="fa-solid fa-chart-line"></i></span>
+            </div>
+            <div class="sc-right">
+              <div class="sc-value">143.3k</div>
+              <div class="sc-label">Today's Sale</div>
+            </div>
+          </div>
+
+          <div class="summary-card">
+            <div class="sc-left">
+              <span class="sc-icon sc-icon-purple"><i class="fa-solid fa-calendar-days"></i></span>
+            </div>
+            <div class="sc-right">
+              <div class="sc-value">$ 250,423</div>
+              <div class="sc-label">Yearly Total Sales</div>
+            </div>
+          </div>
+
+          <div class="summary-card">
+            <div class="sc-left">
+              <span class="sc-icon sc-icon-warm"><i class="fa-solid fa-dollar-sign"></i></span>
+            </div>
+            <div class="sc-right">
+              <div class="sc-value">$68.9k</div>
+              <div class="sc-label">Net Income</div>
+            </div>
+          </div>
+
+          <div class="summary-card">
+            <div class="sc-left">
+              <span class="sc-icon sc-icon-pink"><i class="fa-solid fa-boxes"></i></span>
+            </div>
+            <div class="sc-right">
+              <div class="sc-value">343</div>
+              <div class="sc-label">Products</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid">
+          <div class="panel main-panel">
+            <div class="panel-header">
+              <h3>Stock Report</h3>
+              <div class="legend">
+                <span class="dot dot-in"></span> Stock In
+                <span class="dot dot-out"></span> Stock Out
+              </div>
+            </div>
+
+            <div class="chart-wrap">
+              <canvas id="stockChart"></canvas>
+            </div>
+
+            <div class="panel-subheader">
+              <h4>Sales Order</h4>
+              <a class="view-range">Last 7 Days ▾</a>
+            </div>
+
+            <div class="table-wrap">
+              <table class="order-table" aria-label="Sales order table (desktop)">
+                <thead>
+                  <tr>
+                    <th>Channel</th><th>Draft</th><th>Confirmed</th><th>Packed</th><th>Shipped</th><th>Invoiced</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Direct Sales</td><td>2</td><td>32</td><td>42</td><td>23</td><td>7</td></tr>
+                  <tr><td>Wholesale</td><td>0</td><td>41</td><td>33</td><td>11</td><td>14</td></tr>
+                  <tr><td>Retail</td><td>2</td><td>12</td><td>25</td><td>16</td><td>21</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <aside class="panel right-panel">
+            <div class="quick-user">
+              <img class="avatar" src="https://avatars.githubusercontent.com/u/583231?v=4" alt="Bryan">
+              <div>
+                <div class="name">Bryan Doe</div>
+                <div class="role">Admin</div>
+              </div>
+            </div>
+
+            <div class="quick-actions">
+              <h4>Quick Actions</h4>
+              <ul>
+                <li><span><i class="fa-solid fa-plus-square action-icon"></i> Create Order</span> <span class="kbd">ctrl + n</span></li>
+                <li><span><i class="fa-solid fa-box action-icon"></i> Add Product</span> <span class="kbd">ctrl + p</span></li>
+                <li><span><i class="fa-solid fa-user-plus action-icon"></i> Add Supplier</span> <span class="kbd">ctrl + k</span></li>
+                <li><span><i class="fa-solid fa-file-export action-icon"></i> Export</span> <span class="kbd">ctrl + s</span></li>
+              </ul>
+            </div>
+
+            <div class="fast-moving">
+              <h4>Fast Moving Items</h4>
+              <ul id="fastMovingList" class="fast-moving-list"></ul>
+            </div>
+          </aside>
+        </section>
+
+      </section>
+    </main>
+  </div>
+
+  <!-- Full-width footer (moved out of .main and full width now) -->
+  <footer class="footer fullwidth-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="ft-left">
+          <div class="logo small"><span class="logo-black">Ware</span><span class="logo-blue">View</span></div>
+          <p class="tagline">Cultivating Efficiency, Tracking Excellence — Your Trusted Inventory Management Partner</p>
+        </div>
+
+        <div class="ft-center">
+          <nav class="footer-nav">
+            <a>Dashboard</a>
+            <a>Sales</a>
+            <a>Banking</a>
+            <a>Records</a>
+            <a>Contact Us</a>
+          </nav>
+        </div>
+
+        <div class="ft-right">
+          <div class="socials">
+            <a class="social"><i class="fa-brands fa-facebook-f"></i></a>
+            <a class="social"><i class="fa-brands fa-instagram"></i></a>
+            <a class="social"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <hr class="footer-divider" />
+
+      <div class="footer-bottom">
+        <div class="fb-left"><a>Privacy Policy</a></div>
+        <div class="fb-center">© 2023 Mugna Technologies, Inc.</div>
+        <div class="fb-right"><a>Terms & Conditions</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
