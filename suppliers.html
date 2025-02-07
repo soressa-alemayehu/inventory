@@ -11,26 +11,12 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <header class="header fullwidth-header">
-    <div class="header-inner">
-      <div class="header-left">
-        <div class="logo header-logo">
-          <span class="logo-black">Ware</span><span class="logo-blue">View</span>
-        </div>
-      </div>
-
-      <div class="header-right">
-        <div class="search-wrap">
-          <input id="suppliersSearch" placeholder="Search suppliers" aria-label="Search suppliers" />
-          <button class="search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-        <button id="editSuppliersBtn" class="primary" style="margin-left:12px">Edit Suppliers</button>
-      </div>
-    </div>
-  </header>
-
-  <div class="app layout">
+  <div class="app">
     <aside class="sidebar" id="desktopSidebar" aria-hidden="false">
+      <div class="logo">
+        <span class="logo-black">Ware</span><span class="logo-blue">View</span>
+      </div>
+
       <nav class="nav" aria-label="Main navigation">
         <h6 class="nav-section">GENERAL</h6>
         <ul>
@@ -38,7 +24,7 @@
           <li class="nav-item"><a href="inventory.html" class="nav-link"><i class="fa-solid fa-box-open"></i> Inventory</a></li>
           <li class="nav-item"><a href="sales.html" class="nav-link"><i class="fa-solid fa-file-invoice-dollar"></i> Sales Orders</a></li>
           <li class="nav-item"><a href="suppliers.html" class="nav-link"><i class="fa-solid fa-handshake-simple"></i> Suppliers</a></li>
-          <li class="nav-item"><a href="reports.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> Reports</a></li>
+          <li class="nav-item"><a href="#" class="nav-link"><i class="fa-solid fa-chart-line"></i> Reports</a></li>
         </ul>
 
         <h6 class="nav-section">SUPPORT</h6>
@@ -49,7 +35,23 @@
       </nav>
     </aside>
 
-    <main class="main">
+    <div class="main">
+      <header class="header">
+        <div class="header-left">
+          <div class="logo header-logo">
+            <span class="logo-black">Ware</span><span class="logo-blue">View</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="search-wrap">
+            <input id="suppliersSearch" placeholder="Search suppliers" aria-label="Search suppliers" />
+            <button class="search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </div>
+          <button id="editSuppliersBtn" class="primary" style="margin-left:12px">Edit Suppliers</button>
+        </div>
+      </header>
+
       <section class="content">
         <section class="grid">
           <div class="panel main-panel">
@@ -99,50 +101,50 @@
               <div style="width:200px;height:200px;margin:8px auto;">
                 <canvas id="suppliersPie"></canvas>
               </div>
-              <ul id="topSuppliersList" style="list-style:none;padding:0;margin-top:6px"></ul>
+              <ul id="topSuppliersList" style="list-style:none;padding:0;margin-top:6px">
+                <!-- populated by JS -->
+              </ul>
             </div>
           </aside>
         </section>
-      </section>
-    </main>
-  </div>
 
-  <footer class="footer fullwidth-footer">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div class="ft-left">
-          <div class="logo small"><span class="logo-black">Ware</span><span class="logo-blue">View</span></div>
-          <p class="tagline">Cultivating Efficiency, Tracking Excellence — Your Trusted Inventory Management Partner</p>
-        </div>
+        <footer class="footer footer-desktop">
+          <div class="footer-top">
+            <div class="ft-left">
+              <div class="logo small"><span class="logo-black">Ware</span><span class="logo-blue">View</span></div>
+              <p class="tagline">Cultivating Efficiency, Tracking Excellence — Your Trusted Inventory Management Partner</p>
+            </div>
 
-        <div class="ft-center">
-          <nav class="footer-nav">
-            <a>Dashboard</a>
-            <a>Sales</a>
-            <a>Banking</a>
-            <a>Records</a>
-            <a>Contact Us</a>
-          </nav>
-        </div>
+            <div class="ft-center">
+              <nav class="footer-nav">
+                <a>Dashboard</a>
+                <a>Sales</a>
+                <a>Banking</a>
+                <a>Records</a>
+                <a>Contact Us</a>
+              </nav>
+            </div>
 
-        <div class="ft-right">
-          <div class="socials">
-            <a class="social"><i class="fa-brands fa-facebook-f"></i></a>
-            <a class="social"><i class="fa-brands fa-instagram"></i></a>
-            <a class="social"><i class="fa-brands fa-twitter"></i></a>
+            <div class="ft-right">
+              <div class="socials">
+                <a class="social"><i class="fa-brands fa-facebook-f"></i></a>
+                <a class="social"><i class="fa-brands fa-instagram"></i></a>
+                <a class="social"><i class="fa-brands fa-twitter"></i></a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <hr class="footer-divider" />
+          <hr class="footer-divider" />
 
-      <div class="footer-bottom">
-        <div class="fb-left"><a>Privacy Policy</a></div>
-        <div class="fb-center">© 2023 Mugna Technologies, Inc.</div>
-        <div class="fb-right"><a>Terms & Conditions</a></div>
-      </div>
+          <div class="footer-bottom">
+            <div class="fb-left"><a>Privacy Policy</a></div>
+            <div class="fb-center">© 2023 Mugna Technologies, Inc.</div>
+            <div class="fb-right"><a>Terms & Conditions</a></div>
+          </div>
+        </footer>
+      </section>
     </div>
-  </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
