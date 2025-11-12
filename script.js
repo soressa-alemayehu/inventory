@@ -6,7 +6,22 @@
 // - Renders Suppliers table, pie chart and top-suppliers list when on suppliers.html
 // - All data is front-end sample data for now (no API calls)
 
-document.addEventListener('DOMContentLoaded', () => {
+
+
+
+document.addEventListener('DOMContentLoaded', async () => {
+  // --- Load header into placeholder ---
+  const headerContainer = document.getElementById('header');
+  if (headerContainer) {
+    try {
+      const response = await fetch('header.html');
+      const html = await response.text();
+      headerContainer.innerHTML = html;
+    } catch (error) {
+      console.error('Error loading header:', error);
+    }
+  }
+  
   // --- nav active highlight (based on href / pathname) ---
   const navLinks = Array.from(document.querySelectorAll('.nav-link'));
   const current = window.location.pathname.split('/').pop() || 'index.html';
