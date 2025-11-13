@@ -1,145 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>WareView — Inventory</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>WareView — Inventory</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="app">
-    <aside class="sidebar" id="desktopSidebar" aria-hidden="false">
-      <div class="logo">
-        <span class="logo-black">Ware</span><span class="logo-blue">View</span>
-      </div>
-
-      <nav class="nav" aria-label="Main navigation">
-        <h6 class="nav-section">GENERAL</h6>
-        <ul>
-          <li class="nav-item"><a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Dashboard</a></li>
-          <li class="nav-item"><a href="inventory.html" class="nav-link"><i class="fa-solid fa-box-open"></i> Inventory</a></li>
-          <li class="nav-item"><a href="#" class="nav-link"><i class="fa-solid fa-file-invoice-dollar"></i> Sales Orders</a></li>
-          <li class="nav-item"><a href="#" class="nav-link"><i class="fa-solid fa-handshake-simple"></i> Suppliers</a></li>
-          <li class="nav-item"><a href="#" class="nav-link"><i class="fa-solid fa-chart-line"></i> Reports</a></li>
-        </ul>
-
-        <h6 class="nav-section">SUPPORT</h6>
-        <ul>
-          <li class="nav-item"><a href="#" class="nav-link"><i class="fa-solid fa-circle-question"></i> Help</a></li>
-          <li class="nav-item"><a href="#" class="nav-link"><i class="fa-solid fa-gear"></i> Settings</a></li>
-        </ul>
-      </nav>
-    </aside>
-
-    <div class="main">
-      <header class="header">
-        <div class="header-left">
-          <div class="logo header-logo">
-            <span class="logo-black">Ware</span><span class="logo-blue">View</span>
-          </div>
-        </div>
-
-        <div class="header-right">
-          <div class="search-wrap">
-            <input id="globalSearch" placeholder="Search" aria-label="Search" />
-            <button class="search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
-          </div>
-        </div>
-      </header>
-
-      <section class="content">
-        <div class="inventory-header">
-          <div class="inventory-left"><h2>Inventory</h2></div>
-          <div class="inventory-controls">
-            <div class="inventory-search">
-              <input id="inventorySearch" placeholder="Search products, code..." />
-              <button id="addProductBtn" class="primary">+ Add New Product</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid">
-          <div class="panel main-panel">
-            <h4 class="panel-title">Product List</h4>
-            <div class="product-table-wrap">
-              <table class="product-table" id="productTable">
-                <thead>
-                  <tr>
-                    <th class="col-check"><input id="selectAll" type="checkbox" /></th>
-                    <th>Name</th>
-                    <th>Code</th>
-                    <th>Type</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Image</th>
-                  </tr>
-                </thead>
-                <tbody id="productTbody"></tbody>
-              </table>
-            </div>
-
-            <div class="pagination" id="pagination"></div>
-          </div>
-
-          <aside class="panel right-panel">
-            <div class="quick-actions">
-              <h4>Quick Actions</h4>
-              <ul>
-                <li><span><i class="fa-solid fa-plus-square action-icon"></i> Create Order</span> <span class="kbd">ctrl + n</span></li>
-                <li><span><i class="fa-solid fa-box action-icon"></i> Add Product</span> <span class="kbd">ctrl + p</span></li>
-                <li><span><i class="fa-solid fa-user-plus action-icon"></i> Add Supplier</span> <span class="kbd">ctrl + k</span></li>
-                <li><span><i class="fa-solid fa-file-export action-icon"></i> Export</span> <span class="kbd">ctrl + s</span></li>
-              </ul>
-            </div>
-
-            <div class="recent-activity">
-              <h4>Recent Activity</h4>
-              <ul id="recentActivity"></ul>
-            </div>
-          </aside>
-        </div>
-
-        <footer class="footer footer-desktop">
-          <div class="footer-top">
-            <div class="ft-left">
-              <div class="logo small"><span class="logo-black">Ware</span><span class="logo-blue">View</span></div>
-              <p class="tagline">Cultivating Efficiency, Tracking Excellence — Your Trusted Inventory Management Partner</p>
-            </div>
-
-            <div class="ft-center">
-              <nav class="footer-nav">
-                <a>Dashboard</a>
-                <a>Sales</a>
-                <a>Banking</a>
-                <a>Records</a>
-                <a>Contact Us</a>
-              </nav>
-            </div>
-
-            <div class="ft-right">
-              <div class="socials">
-                <a class="social"><i class="fa-brands fa-facebook-f"></i></a>
-                <a class="social"><i class="fa-brands fa-instagram"></i></a>
-                <a class="social"><i class="fa-brands fa-twitter"></i></a>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+    <div class="app">
+      <div id="sidebar"></div>
+      <div class="main">
+        <section class="content">
+          <div class="inventory-header">
+            <div class="inventory-left"><h2>Inventory</h2></div>
+            <div class="inventory-controls">
+              <div class="inventory-search">
+                <input
+                  id="inventorySearch"
+                  placeholder="Search products, code..."
+                />
+                <button id="addProductBtn" class="primary">
+                  + Add New Product
+                </button>
               </div>
             </div>
           </div>
 
-          <hr class="footer-divider" />
+          <div class="grid">
+            <div class="panel main-panel">
+              <h4 class="panel-title">Product List</h4>
+              <div class="product-table-wrap">
+                <table class="product-table" id="productTable">
+                  <thead>
+                    <tr>
+                      <th class="col-check">
+                        <input id="selectAll" type="checkbox" />
+                      </th>
+                      <th>Name</th>
+                      <th>Code</th>
+                      <th>Type</th>
+                      <th>Price</th>
+                      <th>Quantity</th>
+                      <th>Image</th>
+                    </tr>
+                  </thead>
+                  <tbody id="productTbody"></tbody>
+                </table>
+              </div>
 
-          <div class="footer-bottom">
-            <div class="fb-left"><a>Privacy Policy</a></div>
-            <div class="fb-center">© 2023 Mugna Technologies, Inc.</div>
-            <div class="fb-right"><a>Terms & Conditions</a></div>
+              <div class="pagination" id="pagination"></div>
+            </div>
           </div>
-        </footer>
-      </section>
-    </div>
-  </div>
+        </section>
+      </div>
+      <aside class="panel right-panel">
+        <div class="quick-actions">
+          <h4>Quick Actions</h4>
+          <ul>
+            <li>
+              <span
+                ><i class="fa-solid fa-plus-square action-icon"></i> Create
+                Order</span
+              >
+              <span class="kbd">ctrl + n</span>
+            </li>
+            <li>
+              <span
+                ><i class="fa-solid fa-box action-icon"></i> Add Product</span
+              >
+              <span class="kbd">ctrl + p</span>
+            </li>
+            <li>
+              <span
+                ><i class="fa-solid fa-user-plus action-icon"></i> Add
+                Supplier</span
+              >
+              <span class="kbd">ctrl + k</span>
+            </li>
+            <li>
+              <span
+                ><i class="fa-solid fa-file-export action-icon"></i>
+                Export</span
+              >
+              <span class="kbd">ctrl + s</span>
+            </li>
+          </ul>
+        </div>
 
-  <script src="script.js"></script>
-</body>
+        <div class="recent-activity">
+          <h4>Recent Activity</h4>
+          <ul id="recentActivity"></ul>
+        </div>
+      </aside>
+    </div>
+    <div id="footer"></div>
+    <script src="script.js"></script>
+  </body>
 </html>

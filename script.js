@@ -21,6 +21,27 @@ document.addEventListener('DOMContentLoaded', async () => {
       console.error('Error loading header:', error);
     }
   }
+  const footerContainer = document.getElementById('footer');
+  if (footerContainer) {
+    try {
+      const response = await fetch('footer.html');
+      const html = await response.text();
+      footerContainer.innerHTML = html;
+    } catch (error) {
+      console.error('Error loading header:', error);
+    }
+  }
+
+  const sidebarContainer = document.getElementById('sidebar');
+  if (sidebarContainer) {
+    try {
+      const response = await fetch('sidebar.html');
+      const html = await response.text();
+      sidebarContainer.innerHTML = html;
+    } catch (error) {
+      console.error('Error loading header:', error);
+    }
+  }
   
   // --- nav active highlight (based on href / pathname) ---
   const navLinks = Array.from(document.querySelectorAll('.nav-link'));
@@ -89,21 +110,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   const productTbody = document.getElementById('productTbody');
   if (productTbody) {
     const PRODUCTS = [
-      { id: 1, name: 'Macbook Pro', code: '#0001', type: 'Laptop', price: '$1,241', qty: 44, image: 'https://via.placeholder.com/80x60?text=MBP' },
-      { id: 2, name: 'iPhone 14 pro', code: '#0002', type: 'Phone', price: '$1,499', qty: 23, image: 'https://via.placeholder.com/80x60?text=iPhone' },
-      { id: 3, name: 'Zoom75', code: '#0003', type: 'Keyboard', price: '$215', qty: 23, image: 'https://via.placeholder.com/80x60?text=Zoom75' },
-      { id: 4, name: 'Airpods Pro', code: '#0004', type: 'Earphones', price: '$249', qty: 23, image: 'https://via.placeholder.com/80x60?text=Airpods' },
-      { id: 5, name: 'Samsung Galaxy Fold', code: '#0005', type: 'Phone', price: '$1,199', qty: 23, image: 'https://via.placeholder.com/80x60?text=Fold' },
-      { id: 6, name: 'Samsung Odyssey', code: '#0006', type: 'Displays', price: '$500', qty: 23, image: 'https://via.placeholder.com/80x60?text=Odyssey' },
-      { id: 7, name: 'Logitech Superlight', code: '#0007', type: 'Mouse', price: '$150', qty: 28, image: 'https://via.placeholder.com/80x60?text=Mouse' },
-      { id: 8, name: 'Dell Monitor', code: '#0008', type: 'Displays', price: '$350', qty: 15, image: 'https://via.placeholder.com/80x60?text=Dell' }
+      { id: 1, name: 'Macbook Pro', code: '#0001', type: 'Laptop', price: '$1,241', qty: 44, image: 'https://media.istockphoto.com/id/1368668733/photo/half-opened-apple-brand-m1-model-macbook-pro-laptop-computer-on-a-white-background.jpg?s=2048x2048&w=is&k=20&c=e2lUvcjKHP4E9WoFs91hC_RQTdS2KPvHiRCWmiNvPqk=' },
+      { id: 2, name: 'iPhone 14 pro', code: '#0002', type: 'Phone', price: '$1,499', qty: 23, image: 'https://media.istockphoto.com/id/1368668733/photo/half-opened-apple-brand-m1-model-macbook-pro-laptop-computer-on-a-white-background.jpg?s=2048x2048&w=is&k=20&c=e2lUvcjKHP4E9WoFs91hC_RQTdS2KPvHiRCWmiNvPqk=' },
+      { id: 3, name: 'Zoom75', code: '#0003', type: 'Keyboard', price: '$215', qty: 23, image:  'https://media.istockphoto.com/id/1368668733/photo/half-opened-apple-brand-m1-model-macbook-pro-laptop-computer-on-a-white-background.jpg?s=2048x2048&w=is&k=20&c=e2lUvcjKHP4E9WoFs91hC_RQTdS2KPvHiRCWmiNvPqk=' },
+      { id: 4, name: 'Airpods Pro', code: '#0004', type: 'Earphones', price: '$249', qty: 23, image:  'https://media.istockphoto.com/id/1368668733/photo/half-opened-apple-brand-m1-model-macbook-pro-laptop-computer-on-a-white-background.jpg?s=2048x2048&w=is&k=20&c=e2lUvcjKHP4E9WoFs91hC_RQTdS2KPvHiRCWmiNvPqk=' },
+      { id: 5, name: 'Samsung Galaxy Fold', code: '#0005', type: 'Phone', price: '$1,199', qty: 23, image:  'https://media.istockphoto.com/id/1368668733/photo/half-opened-apple-brand-m1-model-macbook-pro-laptop-computer-on-a-white-background.jpg?s=2048x2048&w=is&k=20&c=e2lUvcjKHP4E9WoFs91hC_RQTdS2KPvHiRCWmiNvPqk=' },
+      { id: 7, name: 'Logitech Superlight', code: '#0007', type: 'Mouse', price: '$150', qty: 28, image:  'https://media.istockphoto.com/id/1368668733/photo/half-opened-apple-brand-m1-model-macbook-pro-laptop-computer-on-a-white-background.jpg?s=2048x2048&w=is&k=20&c=e2lUvcjKHP4E9WoFs91hC_RQTdS2KPvHiRCWmiNvPqk=' },
+      { id: 8, name: 'Dell Monitor', code: '#0008', type: 'Displays', price: '$350', qty: 15, image:  'https://media.istockphoto.com/id/1368668733/photo/half-opened-apple-brand-m1-model-macbook-pro-laptop-computer-on-a-white-background.jpg?s=2048x2048&w=is&k=20&c=e2lUvcjKHP4E9WoFs91hC_RQTdS2KPvHiRCWmiNvPqk=' },
     ];
 
     const RECENT = [
-      { text: 'Restocked 6 Products', detail: 'Macbook Pro • 1m ago', thumb: 'https://via.placeholder.com/60?text=MBP' },
-      { text: 'Sold 2 Products', detail: 'iPhone 14 pro • 12m ago', thumb: 'https://via.placeholder.com/60?text=Phone' },
-      { text: 'Sold 1 Product', detail: 'Zoom75 • 23m ago', thumb: 'https://via.placeholder.com/60?text=Zoom' },
-      { text: 'Restocked 12 Product', detail: 'Zoom75 • 42m ago', thumb: 'https://via.placeholder.com/60?text=Zoom' }
+      { text: 'Restocked 6 Products', detail: 'Macbook Pro • 1m ago', thumb:  'https://media.istockphoto.com/id/1368668733/photo/half-opened-apple-brand-m1-model-macbook-pro-laptop-computer-on-a-white-background.jpg?s=2048x2048&w=is&k=20&c=e2lUvcjKHP4E9WoFs91hC_RQTdS2KPvHiRCWmiNvPqk=' },
+      { text: 'Sold 2 Products', detail: 'iPhone 14 pro • 12m ago', thumb:  'https://media.istockphoto.com/id/1368668733/photo/half-opened-apple-brand-m1-model-macbook-pro-laptop-computer-on-a-white-background.jpg?s=2048x2048&w=is&k=20&c=e2lUvcjKHP4E9WoFs91hC_RQTdS2KPvHiRCWmiNvPqk=' },
+      { text: 'Sold 1 Product', detail: 'Zoom75 • 23m ago', thumb:  'https://media.istockphoto.com/id/1368668733/photo/half-opened-apple-brand-m1-model-macbook-pro-laptop-computer-on-a-white-background.jpg?s=2048x2048&w=is&k=20&c=e2lUvcjKHP4E9WoFs91hC_RQTdS2KPvHiRCWmiNvPqk=' },
+      { text: 'Restocked 12 Product', detail: 'Zoom75 • 42m ago', thumb:  'https://media.istockphoto.com/id/1368668733/photo/half-opened-apple-brand-m1-model-macbook-pro-laptop-computer-on-a-white-background.jpg?s=2048x2048&w=is&k=20&c=e2lUvcjKHP4E9WoFs91hC_RQTdS2KPvHiRCWmiNvPqk=' }
     ];
 
     // inventory state
@@ -136,7 +156,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           <td class="col-check"><input class="row-check" type="checkbox" data-id="${p.id}" /></td>
           <td>
             <div class="product-name">
-              <img class="product-thumb" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" />
+              
               <div>
                 <div style="font-weight:600">${escapeHtml(p.name)}</div>
                 <div class="product-code">${escapeHtml(p.code)}</div>
@@ -344,17 +364,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   const suppliersTbody = document.getElementById('suppliersTbody');
   if (suppliersTbody) {
     const SUPPLIERS = [
-      { id:1, name:'Apple', email:'apple@gmail.com', phone:'+63 123 4243', logo:'https://via.placeholder.com/40?text=A' , share: 61},
-      { id:2, name:'Samsung', email:'samsung@gmail.com', phone:'+63 133 3453', logo:'https://via.placeholder.com/40?text=S', share: 15},
-      { id:3, name:'Mugna Tech', email:'logitech@gmail.com', phone:'+63 433 4451', logo:'https://via.placeholder.com/40?text=M', share: 11},
-      { id:4, name:'Logitech', email:'xiao.mi@gmail.com', phone:'+63 433 4531', logo:'https://via.placeholder.com/40?text=L', share: 5},
-      { id:5, name:'Asus', email:'asus@gmail.com', phone:'+63 234 6457', logo:'https://via.placeholder.com/40?text=AS', share: 4},
-      { id:6, name:'Lian Li', email:'microsoft@gmail.com', phone:'+63 546 8345', logo:'https://via.placeholder.com/40?text=LL', share: 2},
-      { id:7, name:'NZXT', email:'hello@mugna.tech', phone:'+63 917 1033 599', logo:'https://via.placeholder.com/40?text=N', share: 1},
-      { id:8, name:'Xiaomi', email:'lianli@gmail.com', phone:'+63 123 3345', logo:'https://via.placeholder.com/40?text=X', share: 1},
-      { id:9, name:'Microsoft', email:'akko@gmail.com', phone:'+63 334 5673', logo:'https://via.placeholder.com/40?text=MS', share: 0},
-      { id:10, name:'Sony', email:'intel@gmail.com', phone:'+63 986 7465', logo:'https://via.placeholder.com/40?text=SY', share: 0},
-      { id:11, name:'Dell', email:'nvidia@gmail.com', phone:'+63 461 4677', logo:'https://via.placeholder.com/40?text=D', share: 0}
+      { id:1, name:'Apple', email:'apple@gmail.com', phone:'+63 123 4243', logo:'https://images.unsplash.com/photo-1621768216002-5ac171876625?q=80&w=1474&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' , share: 61},
+      { id:2, name:'Samsung', email:'samsung@gmail.com', phone:'+63 133 3453', logo:'https://images.unsplash.com/photo-1661347998423-b15d37d6f61e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', share: 15},
+      { id:3, name:'Mugna Tech', email:'logitech@gmail.com', phone:'+63 433 4451', logo:'https://images.unsplash.com/photo-1661347998423-b15d37d6f61e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', share: 11},
+      { id:4, name:'Logitech', email:'xiao.mi@gmail.com', phone:'+63 433 4531', logo:'https://images.unsplash.com/photo-1661347998423-b15d37d6f61e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', share: 5},
+      { id:5, name:'Asus', email:'asus@gmail.com', phone:'+63 234 6457', logo:'https://images.unsplash.com/photo-1661347998423-b15d37d6f61e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', share: 4},
+      { id:6, name:'Lian Li', email:'microsoft@gmail.com', phone:'+63 546 8345', logo:'https://images.unsplash.com/photo-1661347998423-b15d37d6f61e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', share: 1},
+      { id:8, name:'Xiaomi', email:'lianli@gmail.com', phone:'+63 123 3345', logo:'https://images.unsplash.com/photo-1661347998423-b15d37d6f61e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', share: 1},
+      { id:9, name:'Microsoft', email:'akko@gmail.com', phone:'+63 334 5673', logo:'https://images.unsplash.com/photo-1661347998423-b15d37d6f61e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', share: 0},
+      { id:10, name:'Sony', email:'intel@gmail.com', phone:'+63 986 7465', logo:'https://images.unsplash.com/photo-1661347998423-b15d37d6f61e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', share: 0},
+      { id:11, name:'Dell', email:'nvidia@gmail.com', phone:'+63 461 4677', logo:'https://images.unsplash.com/photo-1661347998423-b15d37d6f61e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', share: 0}
     ];
 
     // suppliers pagination & state
